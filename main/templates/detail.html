@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h3>{{student.name}} 학생 정보</h3>
+</head>
+<body>
+    <p>학과: {{student.major}} </p>
+    <p>학번: {{student.number}}</p>
+    <p>입학년도: {{student.year}}</p>
+    <p>학년: {{student.level}}</p>
+    <p>평균 학점: {{student.average}}</p>
+
+    <a href="{% url 'index' %}">홈으로</a>
+
+    <a href="{% url 'update' student.id %}">
+        <button>수정</button>
+    </a>
+    <a href="{% url 'postdelete' student.id %}">삭제</a>
+</body>
+</html>

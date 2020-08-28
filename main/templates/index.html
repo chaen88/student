@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>남준쌤의 학생 관리!^^</title>
+</head>
+<body>
+    {% for student in all_student %} 
+    
+    <div class="all_student">
+        <P>{{student.name}}</p> <!--author: 작성자 조회-->
+        <p>{{student.major}}</p>
+        <p>{{student.number}}</p>
+        <p>{{student.year}}</p>
+        <p>{{student.level}}</p>
+        <p>{{student.average}}</p>
+    {% endfor %}
+</body>
+</html>
