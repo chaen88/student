@@ -1,5 +1,5 @@
-from django.shortcuts import render,get_object_or_404, redirect
-from .models import Students
+from django.shortcuts import render,redirect,get_object_or_404
+from main.models import Students
 
 # Create your views here.
 
@@ -8,11 +8,12 @@ def index(request):
     return render(request, 'index.html',{'all_student':all_student})
 
 def detail(request,student_id):
-    student = get_object_or_404 (Students,pk=student_id) 
+    student = get_object_or_404 (Students,pk=student_id)
+
     return render(request,'detail.html',{'student':student})
 
 def update(request,student_id):
-    student = get_object_or_404 (Students,pk=student_id) 
+    edit = get_object_or_404 (Students,pk=student_id) 
 
     if request.method == 'POST':
         edit = Students()
@@ -26,7 +27,7 @@ def update(request,student_id):
 
         edit.save()
 
-        return redirect('/detail/'+str(student_id))
+        return redirect('detail',student_id)
     else:
         return render(request,'update.html',{'student':student})
 
@@ -43,9 +44,12 @@ def create(request):
 
         edit.save()
 
-        return redirect('/detail/'+str(student_id))
+        return redirect('detail')
+
+    return render(request,'create.html')
 
 def delete(request,student_id):
     deletepost=get_object_or_404 (Students,pk=student_id)
     deletepost.delete()
+
     return redirect('index')

@@ -1,20 +1,58 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>남준쌤의 학생 관리!^^</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 </head>
 <body>
-    {% for student in all_student %} 
+    {% if user.is_authenticated %} <!--유저의 로그인 여부-->
+   
+
+    반갑습니다.{{user}}님<br>
+
+    {% else %}<!--로그인이 안됐을 경우-->
+
     
-    <div class="all_student">
-        <P>{{student.name}}</p> <!--author: 작성자 조회-->
-        <p>{{student.major}}</p>
-        <p>{{student.number}}</p>
-        <p>{{student.year}}</p>
-        <p>{{student.level}}</p>
-        <p>{{student.average}}</p>
-    {% endfor %}
+
+    <div class="make_student">
+        <a href="{% url 'create' %}">
+        <button>학생 등록</button>
+        </a>
+    </div>
+    
+    {% endif %}
+
+    
+    <table border="1">
+        
+        <tr>
+            <th>이름</th>
+            <th>학과</th>
+            <th>학번</th>
+            <th>입학년도</th>
+            <th>학년</th>
+            <th>평균학점</th>
+            <th>자세히</th>
+        </tr>   
+        {% for student in all_student %} 
+        <tr>
+            <td>{{student.name}}</td> <!--author: 작성자 조회-->
+            <td>{{student.major}}</td>
+            <td>{{student.number}}</td>
+            <td>{{student.year}}</td>
+            <td>{{student.level}}</td>
+            <td>{{student.average}}</td>
+            <td><a href="{% url 'detail' student.id %}">
+                    자세히
+                </a>
+            </td>
+        </tr>
+        
+        {% endfor %}
+    </table>
 </body>
 </html>

@@ -1,5 +1,5 @@
-<h2>새로운 학생 정보 수정</h2>
-<form action="{% url 'update' %}" method="POST">
+<h2>새로운 학생 정보 저장</h2>
+<form action="{% url 'create' %}" method="POST">
     {% csrf_token %}
     <input type="text" placeholder="이름" name="name" id="name" value="{{student.name}}" /> 
     <br />
