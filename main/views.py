@@ -16,7 +16,7 @@ def update(request,student_id):
     edit = get_object_or_404 (Students,pk=student_id) 
 
     if request.method == 'POST':
-        edit = Students()
+       
         
         edit.name = request.POST['name']
         edit.major = request.POST['major']
@@ -29,7 +29,7 @@ def update(request,student_id):
 
         return redirect('detail',student_id)
     else:
-        return render(request,'update.html',{'student':student})
+        return render(request,'update.html',{'edit':edit})
 
 def create(request):
     if request.method == 'POST':
@@ -44,7 +44,7 @@ def create(request):
 
         edit.save()
 
-        return redirect('detail')
+        return redirect('detail', edit_id)
 
     return render(request,'create.html')
 

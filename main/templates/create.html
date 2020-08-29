@@ -1,22 +1,22 @@
 <h2>새로운 학생 정보 저장</h2>
 <form action="{% url 'create' %}" method="POST">
     {% csrf_token %}
-    <input type="text" placeholder="이름" name="name" id="name" value="{{student.name}}" /> 
+    <input type="text" placeholder="이름" name="name" id="name"  /> 
     <br />
 
-    <input type="text" placeholder="학과" name="name" id="name" value="{{student.name}}" /> 
+    <input type="text" placeholder="학과" name="major" id="major"  /> 
     <br />
 
-    <input type="text" placeholder="학번" name="name" id="name" value="{{student.name}}" /> 
+    <input type="text" placeholder="학번" name="number" id="number"  /> 
     <br />
 
-    <input type="text" placeholder="입학 년도" name="name" id="name" value="{{student.name}}" /> 
+    <input type="text" placeholder="입학 년도" name="year" id="year"  /> 
     <br />
     
-    <input type="text" placeholder="학년" name="name" id="name" value="{{student.name}}" /> 
+    <input type="text" placeholder="학년" name="level" id="level" /> 
     <br />
     
-    <input type="text" placeholder="평균 학점" name="name" id="name" value="{{student.name}}" /> 
+    <input type="text" placeholder="평균 학점" name="average" id="average"  /> 
     <br />
             
     <input type="hidden" name="hid" value="hid" /> <br />

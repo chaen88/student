@@ -10,14 +10,24 @@
 </head>
 <body>
     {% if user.is_authenticated %} <!--유저의 로그인 여부-->
-   
+     <a href="{% url 'logout' %}">
+        <button>로그아웃</button>
+    </a>
 
     반갑습니다.{{user}}님<br>
 
     {% else %}<!--로그인이 안됐을 경우-->
 
-    
+    <a href="{% url 'signup' %}">
+        <button>회원가입</button>
+    </a>
 
+    <a href="{% url 'login' %}">
+        <button>로그인</button>
+    </a>
+    
+    {% endif %}
+    {% if user.is_authenticated %} <!--유저의 로그인 여부-->
     <div class="make_student">
         <a href="{% url 'create' %}">
         <button>학생 등록</button>
