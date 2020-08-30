@@ -44,7 +44,7 @@ def create(request):
 
         edit.save()
 
-        return redirect('detail', edit_id)
+        return redirect('detail', edit.id)
 
     return render(request,'create.html')
 
