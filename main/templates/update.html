@@ -1,22 +1,22 @@
 <h2>새로운 학생 정보 수정</h2>
 <form action="{% url 'update' edit.id %}" method="POST">
     {% csrf_token %}
-    <input type="text" placeholder="이름" name="name" id="name" value="{{student.name}}" /> 
+    <input type="text" placeholder="이름" name="name" id="name" value="{{edit.name}}" /> 
     <br />
 
-    <input type="text" placeholder="학과" name="major" id="major" value="{{student.major}}" /> 
+    <input type="text" placeholder="학과" name="major" id="major" value="{{edit.major}}" /> 
     <br />
 
-    <input type="text" placeholder="학번" name="number" id="number" value="{{student.number}}" /> 
+    <input type="text" placeholder="학번" name="number" id="number" value="{{edit.number}}" /> 
     <br />
 
-    <input type="text" placeholder="입학 년도" name="year" id="year" value="{{student.year}}" /> 
+    <input type="text" placeholder="입학 년도" name="year" id="year" value="{{edit.year}}" /> 
     <br />
     
-    <input type="text" placeholder="학년" name="level" id="level" value="{{student.level}}" /> 
+    <input type="text" placeholder="학년" name="level" id="level" value="{{edit.level}}" /> 
     <br />
     
-    <input type="text" placeholder="평균 학점" name="average" id="average" value="{{student.average}}" /> 
+    <input type="text" placeholder="평균 학점" name="average" id="average" value="{{edit.average}}" /> 
     <br />
             
     <input type="hidden" name="hid" value="hid" /> <br />
